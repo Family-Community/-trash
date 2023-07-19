@@ -80,10 +80,21 @@ WSGI_APPLICATION = 'family_community.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql', 
+        'NAME': 'Family_DB',
+        'USER': 'root',
+        'PASSWORD': 'familycommunityA',
+        'HOST': 'svc.sel4.cloudtype.app',
+        'PORT': '31940'
     }
 }
 
@@ -128,3 +139,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+# 윈도우 분들 이 아래 부분 주석처리 꼭 하기요!
+
+import pymysql
+
+pymysql.install_as_MySQLdb()
